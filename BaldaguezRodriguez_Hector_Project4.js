@@ -10,7 +10,7 @@
 
 // Global Variables
 var say = function (message) {console.log(message);};
-var phoneNumberReturn;
+var pNumber;
 // All my functions
 
 // String functions (Problem and solution):
@@ -19,8 +19,9 @@ var phoneNumberReturn;
 // Cheking Number value
 var phoneNum = function (number){
     var phoneNumber = prompt("What is your phone number","###-###-####");
-    var phonNum = true
-    if (phoneNumber.length == 12){
+    var phonNum = true;
+    
+    if (phoneNumber && phoneNumber.length == 12){
         
         say ("Huray! you did it. Your phone number is " + phoneNumber);
         phonNum = true
@@ -28,14 +29,9 @@ var phoneNum = function (number){
         //code
             phonNum = false
             say ("Try again.")
-    
-            
-        
         }; 
             
-  
-    
-   return number; 
+     return phonNum;    
 };
 
 
@@ -91,5 +87,5 @@ var phoneNum = function (number){
 
 
 // Main Code
-PhoneNumReturn = phoneNum (""); // Phone number string.
-say(PhoneNumReturn);
+pNumber = phoneNum (" "); // Phone number string.
+say(pNumber);
