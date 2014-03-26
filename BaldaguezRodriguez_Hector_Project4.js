@@ -10,37 +10,66 @@
 
 // Global Variables
 var say = function (message) {console.log(message);};
-var pNumber;
+var pNumberReturn;
+var emailReturn;
+var urlReturn;
 // All my functions
 
 // String functions (Problem and solution):
 
 // Does a string follow a 123-456-7890 pattern like a phone number?
 // Cheking Number value
-var phoneNum = function (number){
+var phoneNum = function (string){
     var phoneNumber = prompt("What is your phone number","###-###-####");
+    var end = phoneNumber.length;
     var phonNum = true;
     
-    if (phoneNumber && phoneNumber.length == 12){
+    if ( isNaN(phoneNumber) && phoneNumber.substring(0,end) ){
         
         say ("Huray! you did it. Your phone number is " + phoneNumber);
-        phonNum = true
+        phonNum = true;
     }else { 
-        //code
-            phonNum = false
-            say ("Try again.")
+            phonNum = false;
+            say ("Try again.");
         }; 
             
-     return phonNum;    
+     return phonNum;   
+};
+
+//Does a string follow an aaa@bbb.ccc pattern like an email address?
+var validateEmail = function (emailAddre){
+    var email = prompt("What is your emai address","E-mail");
+    var emailAdd = true;
+    
+    if (email.indexOf ("@") || email.indexOf(".") ){
+        
+        say("This is your email: " + email);
+        emailAdd = true
+    } else {
+            say("This is not an email.");
+            emailAdd = false;
+        };
+    return emailAdd;  
 };
 
 
 
-//Does a string follow an aaa@bbb.ccc pattern like an email address?
-
-
-
 //Is the string a URL? (Does it start with http: or https:?)
+var urlValidation = function(){
+    var url = prompt("What is the website","Start with http: or https:");
+    var urlAdd = true;
+    
+    if (url.indexOf("http:") || url.indexOf("https:") === true) {
+        
+        say ("This is a valid website " + url);
+        urlAdd = true;
+    }else{
+        
+        say ("Not a valid email.");
+        urlAdd = false;
+        };
+    
+};
 
 
 
@@ -87,5 +116,12 @@ var phoneNum = function (number){
 
 
 // Main Code
-pNumber = phoneNum (" "); // Phone number string.
-say(pNumber);
+// Return of true or false for Phone Number.
+pNumberReturn = phoneNum (" "); // Phone number string.
+say("The Boolean answer is " + pNumberReturn); // Boolean answer rue or false.
+
+// Return of true or false for email.
+emailReturn = validateEmail (" ");
+say("The answer for this Boolean is " + emailReturn);
+
+// Return if URL validation is true or false.
