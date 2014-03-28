@@ -14,7 +14,7 @@ var pNumberReturn;
 var emailReturn;
 var urlReturn;
 var titleUpReturn;
-
+var stringChangeReturn;
 
 // All my functions
 
@@ -81,7 +81,7 @@ var urlValidation = function(url){
 var titleUpCase = function(titleString) {
     var capsLetters = titleString.split(" ");
     var titleFixed = " ";
-    
+    // Did nested loop to regain points on previus projects.
     for (var i = 0; i < capsLetters.length; i++) {
           capsLetters[i] = capsLetters[i].charAt(0).toUpperCase() + capsLetters[i].substring(1, capsLetters[i].length);
           
@@ -96,7 +96,25 @@ var titleUpCase = function(titleString) {
 };
 
 //Given a string that is a list of things separated by a given string, as well as another string separator, return a string with the first separator changed to the second: "a,b,c" + "," + "/" -> "a/b/c".
-
+var stringChange = function(string, seperators, sepReplace){
+    
+    var newSep = string.split(seperators);
+    var strChange = " ";
+    
+    for (i = 0; i < newSep.length; i++){
+        if (i < newSep.length - 1) {
+             strChange = strChange + newSep[i] + sepReplace;
+             
+        }else {
+            strChange = strChange + newSep[i];
+        }
+        
+   
+   
+    };
+    
+    return strChange;
+};
 
 
 // Number functions (Probles and Solutions)
@@ -151,3 +169,7 @@ say("This email is also valid" + urlReturn);
 // If uppercasing has been done or not.
 titleUpReturn = titleUpCase("i love to program.");
 say("My new titlte is " + titleUpReturn);
+
+// Cahnging the seperators
+stringChangeReturn = stringChange ("a,d,f" ,"," ,"|");
+say(stringChangeReturn);
