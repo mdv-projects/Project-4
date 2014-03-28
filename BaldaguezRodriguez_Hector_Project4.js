@@ -15,6 +15,7 @@ var emailReturn;
 var urlReturn;
 var titleUpReturn;
 var stringChangeReturn;
+var decConv;
 
 // All my functions
 
@@ -121,7 +122,10 @@ var stringChange = function(string, seperators, sepReplace){
 
 //Format a number to use a specific number of decimal places, as for money: 2.1 -> 2.10
 
-
+var moneyDec = function(decimal, money){
+    return decimal.toFixed(money);
+    
+    };
 
 //Fuzzy-match a number: is the number above or below a number within a certain percent?
 
@@ -173,3 +177,10 @@ say("My new titlte is " + titleUpReturn);
 // Cahnging the seperators
 stringChangeReturn = stringChange ("a,d,f" ,"," ,"|");
 say(stringChangeReturn);
+
+
+//Number Problems
+
+//Convertin decimal to full number
+decConv = moneyDec(7.3569, 3);
+say("Tis is my new number " + decConv)
