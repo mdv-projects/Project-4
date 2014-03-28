@@ -13,6 +13,9 @@ var say = function (message) {console.log(message);};
 var pNumberReturn;
 var emailReturn;
 var urlReturn;
+var titleUpReturn;
+
+
 // All my functions
 
 // String functions (Problem and solution):
@@ -20,7 +23,7 @@ var urlReturn;
 // Does a string follow a 123-456-7890 pattern like a phone number?
 // Cheking Number value
 var phoneNum = function (string){
-    var phoneNumber = prompt("What is your phone number","###-###-####");
+    var phoneNumber = ("123-456-7890");
     var end = phoneNumber.length;
     var phonNum = true;
     
@@ -38,7 +41,7 @@ var phoneNum = function (string){
 
 //Does a string follow an aaa@bbb.ccc pattern like an email address?
 var validateEmail = function (emailAddre){
-    var email = prompt("What is your emai address","E-mail");
+    var email = ("halokenza@gmail.com");
     var emailAdd = true;
     
     if (email.indexOf ("@") || email.indexOf(".") ){
@@ -54,28 +57,43 @@ var validateEmail = function (emailAddre){
 
 
 
-//Is the string a URL? (Does it start with http: or https:?)
-var urlValidation = function(){
-    var url = prompt("What is the website","Start with http: or https:");
+//Is the string a URL? (Does it start with http:// or https://?)
+var urlValidation = function(url){
     var urlAdd = true;
     
-    if (url.indexOf("http:") || url.indexOf("https:") === true) {
+    if ( url.substring(0,7) === "http://"  || url.substring(0,8) === "https://"){
         
+    
         say ("This is a valid website " + url);
         urlAdd = true;
-    }else{
+    }else{ 
         
         say ("Not a valid email.");
         urlAdd = false;
         };
-    
+  return urlAdd;  
 };
 
 
 
 //Title-case a string (split into words, then uppercase the first letter of each word)
 
-
+var titleUpCase = function(titleString) {
+    var capsLetters = titleString.split(" ");
+    var titleFixed = " ";
+    
+    for (var i = 0; i < capsLetters.length; i++) {
+          capsLetters[i] = capsLetters[i].charAt(0).toUpperCase() + capsLetters[i].substring(1, capsLetters[i].length);
+          
+    
+    }; 
+    for (i = 0; i < capsLetters.length; i++){
+        titleFixed = titleFixed + capsLetters[i] + " ";
+        };
+    
+    
+    return titleFixed;
+};
 
 //Given a string that is a list of things separated by a given string, as well as another string separator, return a string with the first separator changed to the second: "a,b,c" + "," + "/" -> "a/b/c".
 
@@ -125,3 +143,11 @@ emailReturn = validateEmail (" ");
 say("The answer for this Boolean is " + emailReturn);
 
 // Return if URL validation is true or false.
+urlReturn = urlValidation("https://gaming.net");
+say("The Boolean answer is " + urlReturn);
+urlReturn = urlValidation("http://animeshippuuden.com");
+say("This email is also valid" + urlReturn);
+
+// If uppercasing has been done or not.
+titleUpReturn = titleUpCase("i love to program.");
+say("My new titlte is " + titleUpReturn);
